@@ -1,0 +1,47 @@
+<html>
+<head>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+
+<div>
+    <input type="text" id="txtPregunta">
+    <input type="button" id="btnPreguntar" value="Preguntar">
+</div>
+<div id="respuesta">
+
+</div>
+
+
+</body>
+
+<script>
+    $(document).ready(function(){
+
+            $('#btnPreguntar').on("click",function(){
+
+             var question =  {question : $("#txtPregunta").val() };
+      
+        $.ajax({
+            url: " https://ipsqna.azurewebsites.net/qnamaker/knowledgebases/cf2b91e3-01e9-4225-88f2-4ad446489670/generateAnswer",
+            beforeSend: function(xhrObj){
+                xhrObj.setRequestHeader("Content-Type","application/json");
+                xhrObj.setRequestHeader("Authorization","EndpointKey 904de5c6-dddd-4672-98a2-834435045faa");
+            },
+            type: "POST",
+            dataType: "json",
+            data: JSON.stringify(question),
+        })
+        .done(function(data) {
+            $("#respuesta").text(data.answers[0].answer);
+        })
+        .fail(function(data) {
+            alert("error");
+        });
+            });
+
+    });
+
+
+</script>
+</html>
