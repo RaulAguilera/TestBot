@@ -90,6 +90,20 @@ namespace TestBot1
 
                 await turnContext.SendActivityAsync(msg, cancellationToken: cancellationToken);
             }
+            else if (turnContext.Activity.Type == ActivityTypes.ConversationUpdate)
+            {
+                if (turnContext.Activity.MembersAdded != null)
+                {
+                    foreach (var member in turnContext.Activity.MembersAdded)
+                    {
+                        
+                        if (member.Id != turnContext.Activity.Recipient.Id)
+                        {
+                            await turnContext.SendActivityAsync($"Hi there - {member.Name}", cancellationToken: cancellationToken);
+                        }
+                    }
+                }
+            }
             else
             {
                 await turnContext.SendActivityAsync($"{turnContext.Activity.Type} event detected");
