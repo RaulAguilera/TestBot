@@ -1,7 +1,4 @@
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,21 +8,11 @@ using System.Threading.Tasks;
 using Microsoft.Bot.Builder;
 using Microsoft.Bot.Schema;
 
+
 namespace EmptyBot1
 {
-    public class EmptyBot : ActivityHandler
+    public class AttachmentsBot : ActivityHandler
     {
-        protected override async Task OnMembersAddedAsync(IList<ChannelAccount> membersAdded, ITurnContext<IConversationUpdateActivity> turnContext, CancellationToken cancellationToken)
-        {
-            foreach (var member in membersAdded)
-            {
-                if (member.Id != turnContext.Activity.Recipient.Id)
-                {
-                    await turnContext.SendActivityAsync(MessageFactory.Text($"Hello world!"), cancellationToken);
-                }
-            }
-        }
-
         protected override async Task OnMessageActivityAsync(ITurnContext<IMessageActivity> turnContext, CancellationToken cancellationToken = default)
         {
             var receivedMessage = turnContext.Activity.Text;
@@ -35,20 +22,35 @@ namespace EmptyBot1
                 await turnContext.SendActivityAsync(HandleIncomingAttachment(turnContext.Activity));
             else
             {
-
+                var reply = MessageFactory.Text("Here you have an image");
                 switch (receivedMessage)
                 {
                     case "image":
-                        var reply = MessageFactory.Text("Here you have an image");
+                        
                         reply.Attachments = new List<Attachment> { GetImageAttachment() };
                         await turnContext.SendActivityAsync(reply);
                         break;
+                    case "imageUrl":
+                       
+                        reply.Attachments = new List<Attachment> { GetImageAttachmentFromUrl() };
+                        await turnContext.SendActivityAsync(reply);
+                        break;
                     default:
-                        await turnContext.SendActivityAsync(MessageFactory.Text($"I got your message.Yours was {receivedMessage}"));
+                        await turnContext.SendActivityAsync(MessageFactory.Text($"I got your message. Yours was {receivedMessage}"));
                         break;
                 }
             }
 
+        }
+
+        private Attachment GetImageAttachmentFromUrl()
+        {
+            return new Attachment
+            {
+                Name = "New attachment",
+                ContentType = "image/jpg",
+                ContentUrl = @"https://b.kisscc0.com/20180717/yiw/kisscc0-columbidae-rock-dove-computer-icons-release-dove-dove-5b4db27d2b7fd6.9022942915318186211782.jpg"
+            };
         }
 
         private static Attachment GetImageAttachment()
@@ -90,3 +92,4 @@ namespace EmptyBot1
         }
     }
 }
+
