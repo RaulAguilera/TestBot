@@ -26,7 +26,10 @@
         "dependencies": {
           "Microsoft.AspNetCore.App": "2.1.1",
           "Microsoft.Bot.Builder.Integration.AspNet.Core": "4.4.5",
-          "Microsoft.NETCore.App": "2.1.0"
+          "Microsoft.NETCore.App": "2.1.0",
+          "Microsoft.Recognizers.Text": "1.2.2",
+          "Microsoft.Recognizers.Text.DateTime": "1.2.2",
+          "Microsoft.Recognizers.Text.Number": "1.2.2"
         },
         "runtime": {
           "EmptyBot1.dll": {}
@@ -222,6 +225,74 @@
         },
         "compile": {
           "lib/netstandard1.4/Microsoft.IdentityModel.Tokens.dll": {}
+        }
+      },
+      "Microsoft.Recognizers.Text/1.2.2": {
+        "dependencies": {
+          "System.Collections.Immutable": "1.5.0",
+          "System.ValueTuple": "4.4.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Recognizers.Definitions.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          },
+          "lib/netstandard2.0/Microsoft.Recognizers.Text.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Recognizers.Definitions.dll": {},
+          "lib/netstandard2.0/Microsoft.Recognizers.Text.dll": {}
+        }
+      },
+      "Microsoft.Recognizers.Text.DateTime/1.2.2": {
+        "dependencies": {
+          "Microsoft.Recognizers.Text": "1.2.2",
+          "Microsoft.Recognizers.Text.Number": "1.2.2",
+          "Microsoft.Recognizers.Text.NumberWithUnit": "1.2.2",
+          "System.Collections.Immutable": "1.5.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Recognizers.Text.DateTime.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Recognizers.Text.DateTime.dll": {}
+        }
+      },
+      "Microsoft.Recognizers.Text.Number/1.2.2": {
+        "dependencies": {
+          "Microsoft.Recognizers.Text": "1.2.2",
+          "System.Collections.Immutable": "1.5.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Recognizers.Text.Number.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Recognizers.Text.Number.dll": {}
+        }
+      },
+      "Microsoft.Recognizers.Text.NumberWithUnit/1.2.2": {
+        "dependencies": {
+          "Microsoft.Recognizers.Text": "1.2.2",
+          "Microsoft.Recognizers.Text.Number": "1.2.2",
+          "System.Collections.Immutable": "1.5.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Recognizers.Text.NumberWithUnit.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Recognizers.Text.NumberWithUnit.dll": {}
         }
       },
       "Microsoft.Rest.ClientRuntime/2.3.20": {
@@ -420,6 +491,7 @@
           "System.Threading": "4.3.0"
         }
       },
+      "System.ValueTuple/4.4.0": {},
       "System.Xml.XmlSerializer/4.3.0": {
         "dependencies": {
           "System.Collections": "4.3.0",
@@ -1687,7 +1759,7 @@
           "System.Threading.Tasks": "4.3.0",
           "System.Threading.Tasks.Parallel": "4.3.0",
           "System.Threading.Thread": "4.3.0",
-          "System.ValueTuple": "4.3.0",
+          "System.ValueTuple": "4.4.0",
           "System.Xml.ReaderWriter": "4.3.0",
           "System.Xml.XDocument": "4.3.0",
           "System.Xml.XPath.XDocument": "4.3.0",
@@ -3223,14 +3295,6 @@
         },
         "compileOnly": true
       },
-      "System.ValueTuple/4.3.0": {
-        "dependencies": {
-          "System.Collections": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0"
-        },
-        "compileOnly": true
-      },
       "System.Xml.ReaderWriter/4.3.0": {
         "dependencies": {
           "System.Collections": "4.3.0",
@@ -3389,6 +3453,34 @@
       "path": "microsoft.identitymodel.tokens/5.2.1",
       "hashPath": "microsoft.identitymodel.tokens.5.2.1.nupkg.sha512"
     },
+    "Microsoft.Recognizers.Text/1.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5cok35idJBUq6XRCpCQhwjgqsUbsUUxoAGf4vZnuJveb7taEMb9pfxdj2OgaOFyjoMZlhlMCIDFOb+SYkhY0Xw==",
+      "path": "microsoft.recognizers.text/1.2.2",
+      "hashPath": "microsoft.recognizers.text.1.2.2.nupkg.sha512"
+    },
+    "Microsoft.Recognizers.Text.DateTime/1.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FuDiA8TkbKJWBeVukw98oFoupwTssh9SCBGU0reWa6XkcvQTFN9kvBTle/m7DHxHbbvqVo7BZ36K4nlClQ8QCA==",
+      "path": "microsoft.recognizers.text.datetime/1.2.2",
+      "hashPath": "microsoft.recognizers.text.datetime.1.2.2.nupkg.sha512"
+    },
+    "Microsoft.Recognizers.Text.Number/1.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lefMpSAoVrnw/aaAcvV+F5TFZa3Bh1/OpmXxlzJmatiDIAHhkjePeTJxyjyU3w/aCqcGBMY2oyaK1oIMd9OLrQ==",
+      "path": "microsoft.recognizers.text.number/1.2.2",
+      "hashPath": "microsoft.recognizers.text.number.1.2.2.nupkg.sha512"
+    },
+    "Microsoft.Recognizers.Text.NumberWithUnit/1.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3Z2MSjo6eD2gwSJskRrnwRqtcCIf4sVyXk5FHO1w/aEQIjgz590QiMTOQooowOj7cTYjRH0u7630rmcDF610tw==",
+      "path": "microsoft.recognizers.text.numberwithunit/1.2.2",
+      "hashPath": "microsoft.recognizers.text.numberwithunit.1.2.2.nupkg.sha512"
+    },
     "Microsoft.Rest.ClientRuntime/2.3.20": {
       "type": "package",
       "serviceable": true,
@@ -3507,6 +3599,13 @@
       "sha512": "sha512-VQRz+JB9J9NVIKT7ZpIvDUIhq6nNhKfoo1sWLwBvbat+A78FIUS54XXn9a+xu2VFXfWpR8vn6LenYqNKAuq0Eg==",
       "path": "system.security.securestring/4.3.0",
       "hashPath": "system.security.securestring.4.3.0.nupkg.sha512"
+    },
+    "System.ValueTuple/4.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BahUww/+mdP4ARCAh2RQhQTg13wYLVrBb9SYVgW8ZlrwjraGCXHGjo0oIiUfZ34LUZkMMR+RAzR7dEY4S1HeQQ==",
+      "path": "system.valuetuple/4.4.0",
+      "hashPath": "system.valuetuple.4.4.0.nupkg.sha512"
     },
     "System.Xml.XmlSerializer/4.3.0": {
       "type": "package",
@@ -5285,13 +5384,6 @@
       "sha512": "sha512-OHmbT+Zz065NKII/ZHcH9XO1dEuLGI1L2k7uYss+9C1jLxTC9kTZZuzUOyXHayRk+dft9CiDf3I/QZ0t8JKyBQ==",
       "path": "system.threading.thread/4.3.0",
       "hashPath": "system.threading.thread.4.3.0.nupkg.sha512"
-    },
-    "System.ValueTuple/4.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-cNLEvBX3d6MMQRZe3SMFNukVbitDAEpVZO17qa0/2FHxZ7Y7PpFRpr6m2615XYM/tYYYf0B+WyHNujqIw8Luwg==",
-      "path": "system.valuetuple/4.3.0",
-      "hashPath": "system.valuetuple.4.3.0.nupkg.sha512"
     },
     "System.Xml.ReaderWriter/4.3.0": {
       "type": "package",

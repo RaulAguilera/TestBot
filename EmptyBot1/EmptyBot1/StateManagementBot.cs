@@ -10,8 +10,8 @@ namespace EmptyBot1
 {
     public class StateManagementBot : ActivityHandler
     {
-        private BotState _conversationState;
-        private BotState _userState;
+        private ConversationState _conversationState;
+        private UserState _userState;
 
         public StateManagementBot(ConversationState conversationState, UserState userState)
         {
@@ -73,8 +73,8 @@ namespace EmptyBot1
             await base.OnTurnAsync(turnContext, cancellationToken);
 
             // Save any state changes that might have occured during the turn.
-            await _conversationState.SaveChangesAsync(turnContext, false, cancellationToken);
-            await _userState.SaveChangesAsync(turnContext, false, cancellationToken);
+            await _conversationState.SaveChangesAsync(turnContext);
+            await _userState.SaveChangesAsync(turnContext);
         }
     }
 }

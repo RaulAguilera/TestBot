@@ -64,6 +64,18 @@
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
+            },
+            "Microsoft.Recognizers.Text": {
+              "target": "Package",
+              "version": "[1.2.2, )"
+            },
+            "Microsoft.Recognizers.Text.DateTime": {
+              "target": "Package",
+              "version": "[1.2.2, )"
+            },
+            "Microsoft.Recognizers.Text.Number": {
+              "target": "Package",
+              "version": "[1.2.2, )"
             }
           },
           "imports": [

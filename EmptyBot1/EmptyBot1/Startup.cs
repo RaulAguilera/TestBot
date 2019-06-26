@@ -44,7 +44,7 @@ namespace EmptyBot1
             services.AddSingleton<ConversationState>();
 
             // Create the bot as a transient. In this case the ASP Controller is expecting an IBot.
-            services.AddTransient<IBot, StateManagementBot>();
+            services.AddTransient<IBot, CustomPromptBot>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
