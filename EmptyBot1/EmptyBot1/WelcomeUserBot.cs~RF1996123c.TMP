@@ -1,0 +1,23 @@
+﻿using Microsoft.Bot.Builder;
+using Microsoft.Bot.Schema;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace EmptyBot1
+{
+    public class WelcomeUserBot : ActivityHandler
+    {
+        private BotState _userState;
+
+        public WelcomeBot(UserState userState) {
+            _userState = userState;
+        }
+
+        public override async Task OnMembersAddedAsync(IList<ChannelAccount> membersAdded, ITurnContext<IConversationUpdateActivity> turnContext, CancellationToken cancellationToken)
+        {
+            var weolcomeUserStateAccesor = _userState.CreateProperty<WelcomeUserState>(nameof(WelcomeUserState));
+
+        }
+    }
+}
