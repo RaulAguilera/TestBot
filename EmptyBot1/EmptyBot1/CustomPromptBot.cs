@@ -92,8 +92,8 @@ namespace EmptyBot1
                 case ConversationFlow.Question.Date:
                     if (ValidateDate(input, out string date, out message))
                     {
-                        profile.Date = date;
-                        await turnContext.SendActivityAsync($"Your cab ride to the airport is scheduled for {profile.Date}.");
+                        //profile.Date = date;
+                        //await turnContext.SendActivityAsync($"Your cab ride to the airport is scheduled for {profile.Date}.");
                         await turnContext.SendActivityAsync($"Thanks for completing the booking {profile.Name}.");
                         await turnContext.SendActivityAsync($"Type anything to run the bot again.");
                         flow.LastQuestionAsked = ConversationFlow.Question.None;
